@@ -1,0 +1,12 @@
+{
+  "name": "bitterness-calculator-web",
+  "version": "0.0.1",
+  "description": "Web version of bitterness calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Alex Zaychenko <zaychenko96y@outlook.com>",
+  "license": "MIT"
+}
