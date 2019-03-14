@@ -10,16 +10,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.js$/,
-        exclude: /node_modules/,
-        include: join(__dirname, 'frontend'),
+        test: /\.js$/,
         use: {
           loader: 'babel-loader'
         }
-      }
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      },
     ]
   },
   plugins: [
-    new HTMLPlugin({ template: join(__dirname, 'frontend', 'index.html') })
+    new HTMLPlugin({ 
+      template: join(__dirname, 'frontend', 'index.html') 
+    })
   ]
 }

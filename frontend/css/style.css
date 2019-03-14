@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+html {
+  font-size: 1.3rem;
+  font-family: 'Lobster', cursive;
+}
+
+body {
+  background-color: #000000;
+}
+
+p {
+  color: #ffff00;
+}
+
+#hopForm h5 {
+  color: #ffff00;
+}
+
+input[type=number]:not(.browser-default) {
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
+  color: #ffff00;
+  border-bottom: 1px solid #ffffff;
+}
+
+input[type=number]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #ffff00;
+  box-shadow: 0 1px 0 0 #ffff00;
+}
+
+.btn-flat {
+  font-size: 1.1rem;
+  text-transform: none;
+}
+
+#infoParagraph {
+  color: #ffff00;
+}
+
+.btn-flat {
+  color: #ffff00;
+  font-family: 'Lobster', cursive;
+}
+
+.btn-flat:hover {
+  background-color: #ffff00;
+  color: #000000;
+}
