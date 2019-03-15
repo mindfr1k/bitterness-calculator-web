@@ -12,7 +12,19 @@ export class BitternessForm extends Component {
         <div className="col s12">
           <p className="col s2">Начальная плотность, %</p>
           <div className="col s10 input-field">
-            <input type="number" min="1" step="0.01" required/>
+            <input type="number" min="1" max="100" step="0.01" required />
+          </div>
+        </div>
+        <div className="col s12">
+          <p className="col s2">Объем сусла перед варкой, л</p>
+          <div className="col s10 input-field">
+            <input type="number" min="1" max="10" step="0.01" required />
+          </div>
+        </div>
+        <div className="col s12">
+          <p className="col s2">Планируемая горечь, %</p>
+          <div className="col s10 input-field">
+            <input type="number" min="1" max="100" step="0.01" required />
           </div>
         </div>
       </form>

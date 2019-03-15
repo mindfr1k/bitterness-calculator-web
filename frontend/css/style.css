@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster');
+@font-face {
+  font-family: 'Lobster';
+  src: url('../fonts/Lobster-Regular.ttf')
+}
 
 html {
   font-size: 1.3rem;
