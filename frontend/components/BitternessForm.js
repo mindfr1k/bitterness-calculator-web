@@ -32,6 +32,28 @@ export class BitternessForm extends Component {
     })
   }
 
+  handleAddClick = () => {
+    this.setState(({ hops }) => {
+      hops.push({
+        weightInput: '',
+        bitternessInput: '',
+        brewingTime: ''
+      })
+      return {
+        hops
+      }
+    })
+  }
+
+  handleRemoveClick = () => {
+    this.setState(({ hops }) => {
+      hops.pop()
+      return {
+        hops
+      }
+    })
+  }
+
   handleSubmit = e => {
     e.preventDefault()
     console.log(this.state)
@@ -81,7 +103,9 @@ export class BitternessForm extends Component {
         </div>
         <HopArray 
         hops={this.state.hops}
-        onInputChange={this.handleHopInput}/>
+        onInputChange={this.handleHopInput}
+        onAddButtonClick={this.handleAddClick}
+        onRemoveButtonClick={this.handleRemoveClick} />
         <div className="col s12 center-align">
           <button className="btn-flat">
             Вычислить горечь

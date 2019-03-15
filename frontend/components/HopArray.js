@@ -9,6 +9,16 @@ export class HopArray extends Component {
     this.props.onInputChange(target)
   }
 
+  handleAddClick = e => {
+    e.preventDefault()
+    this.props.onAddButtonClick(e)
+  }
+
+  handleRemoveClick = e => {
+    e.preventDefault()
+    this.props.onRemoveButtonClick(e)
+  }
+
   render() {
     const hops = this.props.hops.map((_, i, hops) => {
       return (
@@ -17,7 +27,16 @@ export class HopArray extends Component {
           <p className="col s3 center-align">Вес, гр</p>
           <p className="col s3 center-align">Горечь, %</p>
           <p className="col s3 center-align">Время варки, мин</p>
+          {i === hops.length - 1 && i !== 0
+          ?
+          <div className="col s2 center-align">
+            <button className="btn-flat" onClick={this.handleRemoveClick}>
+              <i className="material-icons center">remove</i>
+            </button>
+          </div>
+          :
           <p className="col s2"></p>
+          }
           <div className="col s3 center-align input-field">
             <input 
             name={`weightInput-${i}`}
@@ -50,11 +69,12 @@ export class HopArray extends Component {
           {i === hops.length - 1
           ? 
           <div className="col s1 center-align">
-            <button className="btn-flat">
+            <button className="btn-flat" onClick={this.handleAddClick}>
               <i className="material-icons center">add</i>
             </button>
-          </div> 
-          : '' }
+          </div>
+          : 
+          '' }
         </div>
       )
     })
