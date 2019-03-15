@@ -1,14 +1,34 @@
 import React, { Component } from 'react'
 
+import { HopArray } from './HopArray'
+
 export class BitternessForm extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      hops: [
+        {
+          weightInput: '',
+          bitternessInput: '',
+          brewingTime: ''
+        }
+      ]
+    }
   }
 
   handleInputChange = ({ target: { name, value }}) => {
     this.setState({
       [name]: value
+    })
+  }
+
+  handleHopInput = ({ name, value }) => {
+    const [ field, i ] = name.split('-')
+    this.setState(({ hops }) => {
+      hops[i][field] = value
+      return {
+        hops
+      }
     })
   }
 
@@ -27,7 +47,6 @@ export class BitternessForm extends Component {
             <input 
             name="initDensity"
             onChange={this.handleInputChange}
-            value={this.state[name]}
             type="number" 
             min="1" 
             max="100" 
@@ -41,7 +60,6 @@ export class BitternessForm extends Component {
             <input 
             name="wortVolume"
             onChange={this.handleInputChange}
-            value={this.state[name]} 
             type="number" 
             min="10" 
             step="0.01" 
@@ -54,7 +72,6 @@ export class BitternessForm extends Component {
             <input 
             name="plannedDensity"
             onChange={this.handleInputChange}
-            value={this.state[name]} 
             type="number" 
             min="1" 
             max="100" 
@@ -62,10 +79,13 @@ export class BitternessForm extends Component {
             required />
           </div>
         </div>
-        <div class="col s12 center-align">
-          <button class="btn-flat">
+        <HopArray 
+        hops={this.state.hops}
+        onInputChange={this.handleHopInput}/>
+        <div className="col s12 center-align">
+          <button className="btn-flat">
             Вычислить горечь
-            <i class="material-icons right">assignment</i>
+            <i className="material-icons right">assignment</i>
           </button>
         </div>
       </form>

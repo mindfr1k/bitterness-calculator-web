@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode production && node index.js"
+    "start": "webpack --mode production && node index.js",
+    "dev": "webpack --mode development && node index.js"
   },
   "author": "Alex Zaychenko <zaychenko96y@outlook.com>",
   "license": "MIT",
