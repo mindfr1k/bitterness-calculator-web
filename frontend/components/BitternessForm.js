@@ -12,7 +12,8 @@ export class BitternessForm extends Component {
           bitternessInput: '',
           brewingTime: ''
         }
-      ]
+      ],
+      answerIsActive: false
     }
   }
 
@@ -56,7 +57,24 @@ export class BitternessForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log(this.state)
+    fetch(`http://localhost:3502/calculator/beer-bitterness`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...this.state
+        })
+      })
+      .then(res => res.json())
+      .then(({ totalBitterness }) => {
+        this.setState({
+          totalBitterness,
+          answerIsActive: true
+        })
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -92,7 +110,7 @@ export class BitternessForm extends Component {
           <p className="col s2">Планируемая горечь, %</p>
           <div className="col s10 input-field">
             <input 
-            name="plannedDensity"
+            name="plannedBitterness"
             onChange={this.handleInputChange}
             type="number" 
             min="1" 
@@ -112,6 +130,14 @@ export class BitternessForm extends Component {
             <i className="material-icons right">assignment</i>
           </button>
         </div>
+        <h5 className="col s12 center-align infoParagraph">
+          {this.state.answerIsActive ? 
+            <div>
+              Планируемая горечь: <strong>{this.state.plannedBitterness}
+            </strong> &nbsp;IBU, <br /> Фактическая горечь: <strong>{this.state.totalBitterness}
+            </strong> &nbsp;IBU
+            </div> : ''}
+        </h5>
       </form>
     )
   }

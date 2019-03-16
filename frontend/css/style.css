@@ -37,7 +37,7 @@ input[type=number]:not(.browser-default):focus:not([readonly]) {
   text-transform: none;
 }
 
-#infoParagraph {
+.infoParagraph {
   color: #ffff00;
 }
 
