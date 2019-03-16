@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
-import { HopArray } from './HopArray'
-
 export class BitternessForm extends Component {
   constructor() {
     super()
     this.state = {
+      initDensity: '',
+      wortVolume: '',
+      plannedBitterness: '',
       hops: [
         {
           weightInput: '',
@@ -18,15 +19,22 @@ export class BitternessForm extends Component {
   }
 
   handleInputChange = ({ target: { name, value }}) => {
-    this.setState({
-      [name]: value
+    this.setState(prevState => {
+      const output = /[\d+\.\,]/.test(value)
+        ? value
+        : prevState[name]
+      return {
+        [name]: output
+      }
     })
   }
 
   handleHopInput = ({ name, value }) => {
     const [ field, i ] = name.split('-')
     this.setState(({ hops }) => {
-      hops[i][field] = value
+      /[\d+\.\,]/.test(value)
+      ? hops[i][field] = value
+      : ''
       return {
         hops
       }
@@ -55,17 +63,21 @@ export class BitternessForm extends Component {
     })
   }
 
+  handleSwitch = e => {
+    e.preventDefault()
+    this.props.onSwitch(e)
+  }
+
   handleSubmit = e => {
     e.preventDefault()
+    const { answerIsActive, ...rest } = this.state
     fetch(`http://localhost:3502/calculator/beer-bitterness`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          ...this.state
-        })
+        body: JSON.stringify(rest)
       })
       .then(res => res.json())
       .then(({ totalBitterness }) => {
@@ -73,11 +85,21 @@ export class BitternessForm extends Component {
           totalBitterness,
           answerIsActive: true
         })
+        console.log(rest)
       })
       .catch(err => console.log(err))
   }
 
   render() {
+    const hopArray = React.Children.toArray(this.props.children).map(node => {
+      return (React.cloneElement(node, {
+        hops: this.state.hops,
+        onInputChange: this.handleHopInput,
+        onAddButtonClick: this.handleAddClick,
+        onRemoveButtonClick: this.handleRemoveClick
+      }))
+    })
+    
     return (
       <form className="row" onSubmit={this.handleSubmit}>
         <p className="col s12"></p>
@@ -87,6 +109,7 @@ export class BitternessForm extends Component {
             <input 
             name="initDensity"
             onChange={this.handleInputChange}
+            value={this.state.initDensity}
             type="number" 
             min="1" 
             max="100" 
@@ -100,6 +123,7 @@ export class BitternessForm extends Component {
             <input 
             name="wortVolume"
             onChange={this.handleInputChange}
+            value={this.state.wortVolume}
             type="number" 
             min="10" 
             step="0.01" 
@@ -112,6 +136,7 @@ export class BitternessForm extends Component {
             <input 
             name="plannedBitterness"
             onChange={this.handleInputChange}
+            value={this.state.plannedBitterness}
             type="number" 
             min="1" 
             max="100" 
@@ -119,11 +144,7 @@ export class BitternessForm extends Component {
             required />
           </div>
         </div>
-        <HopArray 
-        hops={this.state.hops}
-        onInputChange={this.handleHopInput}
-        onAddButtonClick={this.handleAddClick}
-        onRemoveButtonClick={this.handleRemoveClick} />
+        {hopArray}
         <div className="col s12 center-align">
           <button className="btn-flat">
             Вычислить горечь
@@ -138,6 +159,12 @@ export class BitternessForm extends Component {
             </strong> &nbsp;IBU
             </div> : ''}
         </h5>
+        <div className="col s12 center-align">
+          <button className="btn-flat" onClick={this.handleSwitch}>
+            Перейти к расчету добавочной воды
+            <i className="material-icons right">arrow_forward</i>
+          </button>
+        </div>
       </form>
     )
   }
