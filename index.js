@@ -13,7 +13,7 @@ express()
   .use((_, res, __) => {
     res.sendFile(join(__dirname, 'frontend', 'built', 'index.html'))
   })
-  .listen(PORT, err => {
+  .listen(process.env.PORT, err => {
     if (!err)
       console.log(`Server successfully runs.`)
   })
