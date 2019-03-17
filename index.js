@@ -15,5 +15,5 @@ express()
   })
   .listen(process.env.PORT, err => {
     if (!err)
-      console.log(`Server successfully runs.`)
+      console.log(`Server successfully runs on ${process.env.PORT}.\n`)
   })

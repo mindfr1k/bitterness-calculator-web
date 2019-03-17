@@ -34,7 +34,7 @@ export class AdditionalWaterForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const { answerIsActive, ...rest } = this.state
-    fetch(`http://localhost:3502/calculator/additional-water`,
+    fetch(`https://pure-plateau-92383.herokuapp.com/calculator/additional-water`,
       {
         method: 'POST',
         headers: {

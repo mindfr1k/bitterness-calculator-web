@@ -71,7 +71,7 @@ export class BitternessForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const { answerIsActive, invalidChars, ...rest } = this.state
-    fetch(`http://localhost:3502/calculator/beer-bitterness`,
+    fetch(`https://pure-plateau-92383.herokuapp.com/calculator/beer-bitterness`,
       {
         method: 'POST',
         headers: {
