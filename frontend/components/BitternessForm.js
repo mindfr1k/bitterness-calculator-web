@@ -159,7 +159,7 @@ export class BitternessForm extends Component {
             <i className="material-icons right">assignment</i>
           </button>
         </div>
-        <h5 className="col s12 center-align infoParagraph" ref={el => this.bottom = el}>
+        <h5 className="col s12 center-align infoParagraph">
           {this.state.answerIsActive ? 
             <div>
               Планируемая горечь: <strong>{this.state.plannedBitterness}
@@ -168,7 +168,7 @@ export class BitternessForm extends Component {
             </div> : ''
           }
         </h5>
-        <div className="col s12 center-align">
+        <div className="col s12 center-align" ref={el => this.bottom = el}>
           <button className="btn-flat" onClick={this.handleSwitch}>
             Перейти к расчету добавочной воды
             <i className="material-icons right">arrow_forward</i>
