@@ -27,6 +27,7 @@ export class HopArray extends Component {
           <p className="col s3 center-align">Вес, гр</p>
           <p className="col s3 center-align">Горечь, %</p>
           <p className="col s3 center-align">Время варки, мин</p>
+          <p className="col s1"></p>
           {i === hops.length - 1 && i !== 0 ?
             <div className="col s2 center-align">
               <button className="btn-flat" onClick={this.handleRemoveClick}>
@@ -71,7 +72,8 @@ export class HopArray extends Component {
               <button className="btn-flat" onClick={this.handleAddClick}>
                 <i className="material-icons center">add</i>
               </button>
-            </div> : '' 
+            </div> :
+            <p className="col s1"></p>
           }
         </div>
       )
