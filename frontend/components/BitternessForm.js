@@ -110,8 +110,8 @@ export class BitternessForm extends Component {
       <form className="row" onSubmit={this.handleSubmit}>
         <p className="col s12" ref={el => this.top = el}></p>
         <div className="col s12">
-          <p className="col s12 l2 center-align">Начальная плотность, %</p>
-          <div className="col s12 l10 input-field">
+          <p className="col s4 offset-s4 l2 center-align">Начальная плотность, %</p>
+          <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="initDensity"
             onChange={this.handleInputChange}
@@ -125,8 +125,8 @@ export class BitternessForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s12 l2 center-align">Объем сусла перед варкой, л</p>
-          <div className="col s12 l10 input-field">
+          <p className="col s4 offset-s4 l2 center-align">Объем сусла перед варкой, л</p>
+          <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="wortVolume"
             onChange={this.handleInputChange}
@@ -139,8 +139,8 @@ export class BitternessForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s12 l2 center-align">Планируемая горечь, %</p>
-          <div className="col s12 l10 input-field">
+          <p className="col s4 offset-s4 l2 center-align">Планируемая горечь, %</p>
+          <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="plannedBitterness"
             onChange={this.handleInputChange}
