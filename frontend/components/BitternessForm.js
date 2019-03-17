@@ -101,7 +101,8 @@ export class BitternessForm extends Component {
         hops: this.state.hops,
         onInputChange: this.handleHopInput,
         onAddButtonClick: this.handleAddClick,
-        onRemoveButtonClick: this.handleRemoveClick
+        onRemoveButtonClick: this.handleRemoveClick,
+        onHopKeyDown: this.handleKeyDown
       })
     )
     
