@@ -66,6 +66,11 @@ export class BitternessForm extends Component {
   handleSwitch = e => {
     e.preventDefault()
     this.props.onSwitch(e)
+    this.scrollToElement(this.top)
+  }
+
+  scrollToElement = elem => {
+    elem.scrollIntoView({ behavior: 'smooth' })
   }
 
   handleSubmit = e => {
@@ -87,6 +92,7 @@ export class BitternessForm extends Component {
         })
       })
       .catch(err => console.log(err))
+    this.scrollToElement(this.bottom)
   }
 
   render() {
@@ -101,7 +107,7 @@ export class BitternessForm extends Component {
     
     return (
       <form className="row" onSubmit={this.handleSubmit}>
-        <p className="col s12"></p>
+        <p className="col s12" ref={el => this.top = el}></p>
         <div className="col s12">
           <p className="col s2">Начальная плотность, %</p>
           <div className="col s10 input-field">
@@ -153,7 +159,7 @@ export class BitternessForm extends Component {
             <i className="material-icons right">assignment</i>
           </button>
         </div>
-        <h5 className="col s12 center-align infoParagraph">
+        <h5 className="col s12 center-align infoParagraph" ref={el => this.bottom = el}>
           {this.state.answerIsActive ? 
             <div>
               Планируемая горечь: <strong>{this.state.plannedBitterness}

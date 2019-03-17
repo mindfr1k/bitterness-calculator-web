@@ -29,6 +29,11 @@ export class AdditionalWaterForm extends Component {
   handleSwitch = e => {
     e.preventDefault()
     this.props.onSwitch(e)
+    this.scrollToElement(this.top)
+  }
+
+  scrollToElement = element => {
+    element.scrollIntoView({ behavior: 'smooth' })
   }
 
   handleSubmit = e => {
@@ -50,12 +55,13 @@ export class AdditionalWaterForm extends Component {
         })
       })
       .catch(err => console.log(err))
+    this.scrollToElement(this.bottom)
   }
 
   render() {
     return (
       <form className="row" onSubmit={this.handleSubmit}>
-        <p className="col s12"></p>
+        <p className="col s12" ref={el => this.top = el}></p>
         <div className="col s12">
           <p className="col s2">Объем сусла перед кипячением, л</p>
           <div className="col s10 input-field">
@@ -135,7 +141,7 @@ export class AdditionalWaterForm extends Component {
             <i className="material-icons right">assignment</i>
           </button>
         </div>
-        <h5 className="col s12 center-align infoParagraph">
+        <h5 className="col s12 center-align infoParagraph" ref={el => this.bottom = el}>
           {this.state.answerIsActive ?
             <div>
               Количество добавочной воды: <strong>{this.state.additionalWater}

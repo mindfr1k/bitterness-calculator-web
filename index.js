@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const { join } = require('path')
 
 const { calculationRoutes } = require('./routes')
+require('dotenv').config()
 
 express()
   .use(cors())
