@@ -14,27 +14,27 @@ export class BitternessForm extends Component {
           brewingTime: ''
         }
       ],
-      answerIsActive: false
+      answerIsActive: false,
+      invalidChars: [ '-', '+', 'e', 'E' ]
     }
   }
 
   handleInputChange = ({ target: { name, value }}) => {
-    this.setState(prevState => {
-      const output = /[\d+\.\,]/.test(value)
-        ? value
-        : prevState[name]
-      return {
-        [name]: output
-      }
+    this.setState({
+      [name]: value
     })
+  }
+
+  handleKeyDown = e => {
+    this.state.invalidChars.includes(e.key)
+    ? e.preventDefault()
+    : ''
   }
 
   handleHopInput = ({ name, value }) => {
     const [ field, i ] = name.split('-')
     this.setState(({ hops }) => {
-      /[\d+\.\,]/.test(value)
-      ? hops[i][field] = value
-      : ''
+      hops[i][field] = value
       return {
         hops
       }
@@ -70,7 +70,7 @@ export class BitternessForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { answerIsActive, ...rest } = this.state
+    const { answerIsActive, invalidChars, ...rest } = this.state
     fetch(`http://localhost:3502/calculator/beer-bitterness`,
       {
         method: 'POST',
@@ -85,20 +85,19 @@ export class BitternessForm extends Component {
           totalBitterness,
           answerIsActive: true
         })
-        console.log(rest)
       })
       .catch(err => console.log(err))
   }
 
   render() {
-    const hopArray = React.Children.toArray(this.props.children).map(node => {
-      return (React.cloneElement(node, {
+    const hopArray = React.Children.toArray(this.props.children).map(node =>
+      React.cloneElement(node, {
         hops: this.state.hops,
         onInputChange: this.handleHopInput,
         onAddButtonClick: this.handleAddClick,
         onRemoveButtonClick: this.handleRemoveClick
-      }))
-    })
+      })
+    )
     
     return (
       <form className="row" onSubmit={this.handleSubmit}>
@@ -110,6 +109,7 @@ export class BitternessForm extends Component {
             name="initDensity"
             onChange={this.handleInputChange}
             value={this.state.initDensity}
+            onKeyDown={this.handleKeyDown}
             type="number" 
             min="1" 
             max="100" 
@@ -124,6 +124,7 @@ export class BitternessForm extends Component {
             name="wortVolume"
             onChange={this.handleInputChange}
             value={this.state.wortVolume}
+            onKeyDown={this.handleKeyDown}
             type="number" 
             min="10" 
             step="0.01" 
@@ -137,6 +138,7 @@ export class BitternessForm extends Component {
             name="plannedBitterness"
             onChange={this.handleInputChange}
             value={this.state.plannedBitterness}
+            onKeyDown={this.handleKeyDown}
             type="number" 
             min="1" 
             max="100" 
@@ -157,7 +159,8 @@ export class BitternessForm extends Component {
               Планируемая горечь: <strong>{this.state.plannedBitterness}
             </strong> &nbsp;IBU, <br /> Фактическая горечь: <strong>{this.state.totalBitterness}
             </strong> &nbsp;IBU
-            </div> : ''}
+            </div> : ''
+          }
         </h5>
         <div className="col s12 center-align">
           <button className="btn-flat" onClick={this.handleSwitch}>

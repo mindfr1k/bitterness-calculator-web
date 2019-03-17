@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class Switcher extends Component {
   constructor() {
     super()
-    this.state ={
+    this.state = {
       position: 0
     }
   }
