@@ -63,8 +63,8 @@ export class AdditionalWaterForm extends Component {
       <form className="row" onSubmit={this.handleSubmit}>
         <p className="col s12" ref={el => this.top = el}></p>
         <div className="col s12">
-          <p className="col s2">Объем сусла перед кипячением, л</p>
-          <div className="col s10 input-field">
+          <p className="col s12 l2 center-align">Объем сусла перед кипячением, л</p>
+          <div className="col s12 l10 input-field">
             <input 
             name="wortVolume"
             onChange={this.handleInputChange}
@@ -77,8 +77,8 @@ export class AdditionalWaterForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s2">Температура сусла, &#8451;</p>
-          <div className="col s10 input-field">
+          <p className="col s12 l2 center-align">Температура сусла, &#8451;</p>
+          <div className="col s12 l10 input-field">
             <input 
             name="wortTemperature"
             onChange={this.handleInputChange}
@@ -91,8 +91,8 @@ export class AdditionalWaterForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s2">Плотность перед кипячением, %</p>
-          <div className="col s10 input-field">
+          <p className="col s12 l2 center-align">Плотность перед кипячением, %</p>
+          <div className="col s12 l10 input-field">
             <input 
             name="boilDensity"
             onChange={this.handleInputChange}
@@ -106,8 +106,8 @@ export class AdditionalWaterForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s2">Плотность по рецепту, %</p>
-          <div className="col s10 input-field">
+          <p className="col s12 l2 center-align">Плотность по рецепту, %</p>
+          <div className="col s12 l10 input-field">
             <input 
             name="plannedDensity"
             onChange={this.handleInputChange}
@@ -121,8 +121,8 @@ export class AdditionalWaterForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s2">Время варки, мин</p>
-          <div className="col s10 input-field">
+          <p className="col s12 l2 center-align">Время варки, мин</p>
+          <div className="col s12 l10 input-field">
             <input 
             name="brewingTime"
             onChange={this.handleInputChange}
