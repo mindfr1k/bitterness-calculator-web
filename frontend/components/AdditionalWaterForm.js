@@ -151,7 +151,7 @@ export class AdditionalWaterForm extends Component {
         </h5>
         <div className="col s12 center-align" ref={el => this.bottom = el}>
           <button className="btn-flat" onClick={this.handleSwitch}>
-            Перейти к расчету добавочной воды
+            Перейти к расчету пивной горечи
             <i className="material-icons right">arrow_forward</i>
           </button>
         </div>
