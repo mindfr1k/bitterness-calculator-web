@@ -2,11 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const { join } = require('path')
-require('dotenv').config()
-
 
 const { calculationRoutes } = require('./routes')
-const { PORT } = process.env
 
 express()
   .use(cors())
@@ -18,5 +15,5 @@ express()
   })
   .listen(PORT, err => {
     if (!err)
-      console.log(`Server successfully runs on ${PORT}.`)
+      console.log(`Server successfully runs.`)
   })
