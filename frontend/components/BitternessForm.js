@@ -139,6 +139,7 @@ export class BitternessForm extends Component {
             onKeyDown={this.handleKeyDown}
             type="number" 
             min="10" 
+            max="100000"
             step="0.01" 
             required />
           </div>

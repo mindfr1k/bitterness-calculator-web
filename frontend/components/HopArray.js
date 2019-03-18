@@ -47,6 +47,7 @@ export class HopArray extends Component {
             onKeyDown={this.handleKeyDown}
             type="number" 
             min="1" 
+            max="100000"
             step="0.01" 
             required />
           </div>
