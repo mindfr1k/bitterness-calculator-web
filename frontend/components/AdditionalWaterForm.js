@@ -10,6 +10,7 @@ export class AdditionalWaterForm extends Component {
       plannedDensity: '',
       brewingTime: '',
       answerIsActive: false,
+      isLoading: false,
       invalidChars: [ '-', '+', 'e', 'E' ]
     }
   }
@@ -38,7 +39,10 @@ export class AdditionalWaterForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { answerIsActive, ...rest } = this.state
+    const { answerIsActive, isLoading, ...rest } = this.state
+    this.setState({
+      isLoading: true
+    })
     fetch(`https://pure-plateau-92383.herokuapp.com/calculator/additional-water`,
       {
         method: 'POST',
@@ -51,6 +55,7 @@ export class AdditionalWaterForm extends Component {
       .then(({ additionalWater }) => {
         this.setState({
           additionalWater,
+          isLoading: false,
           answerIsActive: true
         })
       })
@@ -142,6 +147,19 @@ export class AdditionalWaterForm extends Component {
           </button>
         </div>
         <h5 className="col s12 center-align infoParagraph" ref={el => this.bottom = el}>
+          {this.state.isLoading ?
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-yellow-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div> : ''
+          }
           {this.state.answerIsActive ?
             <div>
               Количество добавочной воды: <strong>{this.state.additionalWater}

@@ -57,3 +57,7 @@ input[type=number]:not(.browser-default):focus:not([readonly]) {
   background-color: #ffff00;
   color: #000000;
 }
+
+.spinner-yellow-only {
+  border-color: #ffff00;
+}

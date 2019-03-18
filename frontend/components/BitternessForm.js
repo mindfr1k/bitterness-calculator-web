@@ -15,6 +15,7 @@ export class BitternessForm extends Component {
         }
       ],
       answerIsActive: false,
+      isLoading: false,
       invalidChars: [ '-', '+', 'e', 'E' ]
     }
   }
@@ -75,7 +76,10 @@ export class BitternessForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { answerIsActive, invalidChars, ...rest } = this.state
+    const { answerIsActive, isLoading, invalidChars, ...rest } = this.state
+    this.setState({
+      isLoading: true
+    })
     fetch(`https://pure-plateau-92383.herokuapp.com/calculator/beer-bitterness`,
       {
         method: 'POST',
@@ -88,6 +92,7 @@ export class BitternessForm extends Component {
       .then(({ totalBitterness }) => {
         this.setState({
           totalBitterness,
+          isLoading: false,
           answerIsActive: true
         })
       })
@@ -161,6 +166,19 @@ export class BitternessForm extends Component {
           </button>
         </div>
         <h5 className="col s12 center-align infoParagraph">
+          {this.state.isLoading ?
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-yellow-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div> : ''
+          }
           {this.state.answerIsActive ? 
             <div>
               Планируемая горечь: <strong>{this.state.plannedBitterness}
