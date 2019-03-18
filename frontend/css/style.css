@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'Lobster';
-  src: url('../fonts/Lobster-Regular.ttf')
+  font-family: 'Exo 2';
+  src: url('../fonts/Exo2-Regular.ttf');
 }
 
 html {
   font-size: 1.3rem;
-  font-family: 'Lobster', cursive;
+  font-family: 'Exo 2', sans-serif;
 }
 
 @media screen and (max-width: 600px) {
@@ -27,7 +27,7 @@ p {
 }
 
 input[type=number]:not(.browser-default) {
-  font-family: 'Lobster', cursive;
+  font-family: 'Exo 2', sans-serif;
   font-size: 1.5rem;
   color: #ffff00;
   border-bottom: 1px solid #ffffff;
@@ -50,7 +50,7 @@ input[type=number]:not(.browser-default):focus:not([readonly]) {
 .btn-flat {
   position: relative;
   color: #ffff00;
-  font-family: 'Lobster', cursive;
+  font-family: 'Exo 2', sans-serif;
 }
 
 .btn-flat:hover {
