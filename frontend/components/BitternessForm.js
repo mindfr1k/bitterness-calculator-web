@@ -180,7 +180,7 @@ export class BitternessForm extends Component {
               </div>
             </div> : ''
           }
-          {this.state.answerIsActive ? 
+          {this.state.answerIsActive && !this.state.isLoading ? 
             <div>
               Планируемая горечь: <strong>{this.state.plannedBitterness}
             </strong> &nbsp;IBU, <br /> Фактическая горечь: <strong>{this.state.totalBitterness}

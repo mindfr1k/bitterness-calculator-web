@@ -162,7 +162,7 @@ export class AdditionalWaterForm extends Component {
               </div>
             </div> : ''
           }
-          {this.state.answerIsActive ?
+          {this.state.answerIsActive && !this.state.isLoading ?
             <div>
               Количество добавочной воды: <strong>{this.state.additionalWater}
               </strong> л
