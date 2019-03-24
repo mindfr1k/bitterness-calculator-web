@@ -14,9 +14,9 @@ export class HopArray extends Component {
     this.props.onAddButtonClick(e)
   }
 
-  handleRemoveClick = e => {
+  handleRemoveClick = (e, i) => {
     e.preventDefault()
-    this.props.onRemoveButtonClick(e)
+    this.props.onRemoveButtonClick(i)
   }
 
   handleKeyDown = e => {
@@ -32,9 +32,9 @@ export class HopArray extends Component {
           <p className="col s3 center-align">Горечь, %</p>
           <p className="col s3 center-align">Время варки, мин</p>
           <p className="col s1"></p>
-          {i === hops.length - 1 && i !== 0 ?
+          {i !== 0 ?
             <div className="col s2 center-align">
-              <button className="btn-flat" onClick={this.handleRemoveClick}>
+              <button className="btn-flat" onClick={e => this.handleRemoveClick(e, i)}>
                 <i className="material-icons center">remove</i>
               </button>
             </div> : <p className="col s2"></p>

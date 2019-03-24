@@ -55,12 +55,10 @@ export class BitternessForm extends Component {
     })
   }
 
-  handleRemoveClick = () => {
-    this.setState(({ hops }) => {
-      hops.pop()
-      return {
-        hops
-      }
+  handleRemoveClick = index => {
+    const hops = this.state.hops.filter((_, i) => i !== index)
+    this.setState({
+      hops
     })
   }
 
@@ -168,14 +166,14 @@ export class BitternessForm extends Component {
         </div>
         <h5 className="col s12 center-align infoParagraph">
           {this.state.isLoading ?
-            <div class="preloader-wrapper big active">
-              <div class="spinner-layer spinner-yellow-only">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
+            <div className="preloader-wrapper big active">
+              <div className="spinner-layer spinner-yellow-only">
+                <div className="circle-clipper left">
+                  <div className="circle"></div>
+                </div><div className="gap-patch">
+                  <div className="circle"></div>
+                </div><div className="circle-clipper right">
+                  <div className="circle"></div>
                 </div>
               </div>
             </div> : ''
