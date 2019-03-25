@@ -15,9 +15,7 @@ module.exports = {
     const diff = Math.floor((wortTemperature - initTemperature) / degreeStep)
     if (diff === 0)
       return parseInt(boilDensity)
-    for (let i = 0; i < diff; i++) {
-      boilDensity -= degreeDiffPerStep
-    }
+    boilDensity -= degreeDiffPerStep * diff
     return boilDensity
   },
   calculateTruePlannedDensity (brewingTime, plannedDensity) {

@@ -20,7 +20,7 @@ module.exports = Router()
       totalBitterness
     })
   })
-  .post('/additional-water', (req, res, __) => {
+  .post('/additional-water', (req, res) => {
     const { wortVolume, wortTemperature, boilDensity, brewingTime, plannedDensity } = req.body
     const remainedWater = wortVolume * calculateTrueInitDensity(wortTemperature, boilDensity) / 100
       / (calculateTruePlannedDensity(brewingTime, plannedDensity) / 100)
