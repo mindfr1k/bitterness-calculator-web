@@ -24,7 +24,7 @@ module.exports = {
     const diff = Math.floor((brewingTime - initBrewingTime) / brewingStep)
     if (diff === 0)
       return plannedDensity - initBrewingCoeff
-    const currentBrewingCoeff = initBrewingCoeff += brewingDiffPerStep * diff
+    const currentBrewingCoeff = initBrewingCoeff + brewingDiffPerStep * diff
     return plannedDensity - currentBrewingCoeff
   }
 }
