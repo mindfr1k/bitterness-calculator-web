@@ -78,7 +78,7 @@ export class BitternessForm extends Component {
     this.setState({
       isLoading: true
     })
-    fetch(`https://pure-plateau-92383.herokuapp.com/calculator/beer-bitterness`,
+    fetch(`https://beer-helper.herokuapp.com/calculator/beer-bitterness`,
       {
         method: 'POST',
         headers: {
