@@ -17,5 +17,8 @@ $ cd repo-name
 $ npm i
 
 # build for production
+$ npm run build
+
+# run application
 $ npm start
 ```
