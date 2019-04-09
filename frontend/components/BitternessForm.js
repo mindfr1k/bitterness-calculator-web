@@ -40,6 +40,7 @@ export class BitternessForm extends Component {
         hops: hops.map((item, index) => {
           if (index === i)
             item[field] = value
+          console.log(item)
           return item
         })
       }
