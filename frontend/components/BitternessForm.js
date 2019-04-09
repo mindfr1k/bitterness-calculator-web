@@ -37,7 +37,11 @@ export class BitternessForm extends Component {
     this.setState(({ hops }) => {
       //hops[i][field] = value
       return {
-        hops: hops.map((item, index) => index === i ? item[field] = value : item)
+        hops: hops.map((item, index) => {
+          if (index === i)
+            item[field] = value
+          return item
+        })
       }
     })
   }
