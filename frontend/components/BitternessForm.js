@@ -55,9 +55,11 @@ export class BitternessForm extends Component {
   }
 
   handleRemoveClick = index => {
-    const hops = this.state.hops.filter((_, i) => i !== index)
-    this.setState({
-      hops
+    this.setState(({ hops }) => {
+      const filteredHops = hops.filter((_, i) => i !== index)
+      return {
+        hops: filteredHops
+      }
     })
   }
 
