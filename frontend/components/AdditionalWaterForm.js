@@ -39,7 +39,7 @@ export class AdditionalWaterForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { answerIsActive, isLoading, ...rest } = this.state
+    const { answerIsActive, isLoading, invalidChars, ...rest } = this.state
     this.setState({
       isLoading: true
     })
