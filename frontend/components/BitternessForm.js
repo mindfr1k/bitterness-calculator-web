@@ -44,13 +44,12 @@ export class BitternessForm extends Component {
 
   handleAddClick = () => {
     this.setState(({ hops }) => {
-      hops.push({
-        weightInput: '',
-        bitternessInput: '',
-        brewingTime: ''
-      })
       return {
-        hops
+        hops: [ ...hops, {
+          weightInput: '',
+          bitternessInput: '',
+          brewingTime: ''
+        }]
       }
     })
   }
