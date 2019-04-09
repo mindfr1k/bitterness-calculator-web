@@ -35,9 +35,9 @@ export class BitternessForm extends Component {
   handleHopInput = ({ name, value }) => {
     const [ field, i ] = name.split('-')
     this.setState(({ hops }) => {
-      hops[i][field] = value
+      //hops[i][field] = value
       return {
-        hops
+        hops: hops.map((item, index) => index === i ? item[field] = value : item)
       }
     })
   }
