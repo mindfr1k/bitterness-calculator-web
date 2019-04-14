@@ -27,12 +27,6 @@ export class AdditionalWaterForm extends Component {
     : ''
   }
 
-  handleSwitch = e => {
-    e.preventDefault()
-    this.props.onSwitch(e)
-    this.scrollToElement(this.top)
-  }
-
   scrollToElement = element => {
     element.scrollIntoView({ behavior: 'smooth' })
   }
@@ -53,6 +47,7 @@ export class AdditionalWaterForm extends Component {
       })
       .then(res => res.json())
       .then(({ additionalWater }) => {
+        this.scrollToElement(this.bottom)
         this.setState({
           additionalWater,
           isLoading: false,
@@ -60,13 +55,12 @@ export class AdditionalWaterForm extends Component {
         })
       })
       .catch(err => console.log(err))
-    this.scrollToElement(this.bottom)
   }
 
   render() {
     return (
       <form className="row" onSubmit={this.handleSubmit}>
-        <p className="col s12" ref={el => this.top = el}></p>
+        <p className="col s12"></p>
         <div className="col s12">
           <p className="col s4 offset-s4 l2 center-align">Объем сусла перед кипячением, л</p>
           <div className="col s4 offset-s4 l10 input-field">
@@ -169,12 +163,6 @@ export class AdditionalWaterForm extends Component {
             </div> : ''
           }
         </h5>
-        <div className="col s12 center-align" ref={el => this.bottom = el}>
-          <button className="btn-flat" onClick={this.handleSwitch}>
-            Перейти к расчету пивной горечи
-            <i className="material-icons right">arrow_forward</i>
-          </button>
-        </div>
       </form>
     )
   }

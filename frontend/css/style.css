@@ -18,6 +18,10 @@ body {
   background-color: #000000;
 }
 
+.row {
+  margin-bottom: 0;
+}
+
 p {
   color: #ffff00;
 }
@@ -60,4 +64,8 @@ input[type=number]:not(.browser-default):focus:not([readonly]) {
 
 .spinner-yellow-only {
   border-color: #ffff00;
+}
+
+.switch-button {
+  margin-bottom: 2rem;
 }

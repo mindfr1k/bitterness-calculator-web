@@ -35,7 +35,6 @@ export class BitternessForm extends Component {
   handleHopInput = ({ name, value }) => {
     const [ field, i ] = name.split('-')
     this.setState(({ hops }) => {
-      //hops[i][field] = value
       return {
         hops: hops.map((item, index) => {
           if (index == i)
@@ -66,14 +65,10 @@ export class BitternessForm extends Component {
     })
   }
 
-  handleSwitch = e => {
-    e.preventDefault()
-    this.props.onSwitch(e)
-    this.scrollToElement(this.top)
-  }
-
   scrollToElement = elem => {
-    elem.scrollIntoView({ behavior: 'smooth' })
+    elem.scrollIntoView({ 
+      behavior: 'smooth'
+    })
   }
 
   handleSubmit = e => {
@@ -92,6 +87,7 @@ export class BitternessForm extends Component {
       })
       .then(res => res.json())
       .then(({ totalBitterness }) => {
+        this.scrollToElement(this.bottom)
         this.setState({
           totalBitterness,
           isLoading: false,
@@ -99,7 +95,6 @@ export class BitternessForm extends Component {
         })
       })
       .catch(err => console.log(err))
-    this.scrollToElement(this.bottom)
   }
 
   render() {
@@ -115,7 +110,7 @@ export class BitternessForm extends Component {
     
     return (
       <form className="row" onSubmit={this.handleSubmit}>
-        <p className="col s12" ref={el => this.top = el}></p>
+        <p className="col s12"></p>
         <div className="col s12">
           <p className="col s4 offset-s4 l2 center-align">Начальная плотность, %</p>
           <div className="col s4 offset-s4 l10 input-field">
@@ -168,7 +163,7 @@ export class BitternessForm extends Component {
             <i className="material-icons right">assignment</i>
           </button>
         </div>
-        <h5 className="col s12 center-align infoParagraph">
+        <h5 className="col s12 center-align infoParagraph" ref={el => this.bottom = el}>
           {this.state.isLoading ?
             <div className="preloader-wrapper big active">
               <div className="spinner-layer spinner-yellow-only">
@@ -190,12 +185,6 @@ export class BitternessForm extends Component {
             </div> : ''
           }
         </h5>
-        <div className="col s12 center-align" ref={el => this.bottom = el}>
-          <button className="btn-flat" onClick={this.handleSwitch}>
-            Перейти к расчету добавочной воды
-            <i className="material-icons right">arrow_forward</i>
-          </button>
-        </div>
       </form>
     )
   }

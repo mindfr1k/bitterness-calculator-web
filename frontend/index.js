@@ -9,7 +9,7 @@ import { HopArray } from './components/HopArray'
 import { Switcher } from './components/Switcher'
 
 reactDOM.render(
-  <Switcher>
+  <Switcher switchCaptions={ ['добавочной воды', 'пивной горечи'] }>
     <BitternessForm>
       <HopArray />
     </BitternessForm>
