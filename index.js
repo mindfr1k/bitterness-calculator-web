@@ -4,10 +4,11 @@ const bodyParser = require('body-parser')
 const { join } = require('path')
 
 const { calculationRoutes } = require('./routes')
-//require('dotenv').config()
+require('dotenv').config()
 
 express()
   .use(cors())
+  .disable('x-powered-by')
   .use(bodyParser.json())
   .use(express.static(join(__dirname, 'frontend', 'built')))
   .use('/calculator', calculationRoutes)

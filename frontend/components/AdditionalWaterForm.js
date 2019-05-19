@@ -62,7 +62,7 @@ export class AdditionalWaterForm extends Component {
       <form className="row" onSubmit={this.handleSubmit}>
         <p className="col s12"></p>
         <div className="col s12">
-          <p className="col s4 offset-s4 l2 center-align">Объем сусла перед кипячением, л</p>
+          <p className="col s4 offset-s4 l2 center-align">Объем сусла после промывки, л</p>
           <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="wortVolume"
@@ -77,7 +77,7 @@ export class AdditionalWaterForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s4 offset-s4 l2 center-align">Температура сусла, &#8451;</p>
+          <p className="col s4 offset-s4 l2 center-align">Температура сусла после промывки, &#8451;</p>
           <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="wortTemperature"
@@ -92,7 +92,7 @@ export class AdditionalWaterForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s4 offset-s4 l2 center-align">Плотность перед кипячением, %</p>
+          <p className="col s4 offset-s4 l2 center-align">Плотность после промывки, %</p>
           <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="boilDensity"

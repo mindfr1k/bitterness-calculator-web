@@ -112,7 +112,7 @@ export class BitternessForm extends Component {
       <form className="row" onSubmit={this.handleSubmit}>
         <p className="col s12"></p>
         <div className="col s12">
-          <p className="col s4 offset-s4 l2 center-align">Начальная плотность, %</p>
+          <p className="col s4 offset-s4 l2 center-align">Начальная плотность по рецепту, %</p>
           <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="initDensity"
@@ -142,7 +142,7 @@ export class BitternessForm extends Component {
           </div>
         </div>
         <div className="col s12">
-          <p className="col s4 offset-s4 l2 center-align">Планируемая горечь, %</p>
+          <p className="col s4 offset-s4 l2 center-align">Планируемая горечь, IBU</p>
           <div className="col s4 offset-s4 l10 input-field">
             <input 
             name="plannedBitterness"

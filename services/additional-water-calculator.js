@@ -14,17 +14,17 @@ module.exports = {
     const { initTemperature, degreeStep, degreeDiffPerStep } = additionalWaterData
     const diff = Math.floor((wortTemperature - initTemperature) / degreeStep)
     if (diff === 0)
-      return parseInt(boilDensity)
+      return boilDensity / 100
     boilDensity -= degreeDiffPerStep * diff
-    return boilDensity
+    return boilDensity / 100
   },
   calculateTruePlannedDensity (brewingTime, plannedDensity) {
     brewingTime = parseInt(brewingTime)
     const { initBrewingCoeff, brewingStep, initBrewingTime, brewingDiffPerStep } = additionalWaterData
     const diff = Math.floor((brewingTime - initBrewingTime) / brewingStep)
     if (diff === 0)
-      return plannedDensity - initBrewingCoeff
+      return (plannedDensity - initBrewingCoeff) / 100
     const currentBrewingCoeff = initBrewingCoeff + brewingDiffPerStep * diff
-    return plannedDensity - currentBrewingCoeff
+    return (plannedDensity - currentBrewingCoeff) / 100
   }
 }

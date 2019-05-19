@@ -22,8 +22,8 @@ module.exports = Router()
   })
   .post('/additional-water', (req, res) => {
     const { wortVolume, wortTemperature, boilDensity, brewingTime, plannedDensity } = req.body
-    const remainedWater = wortVolume * calculateTrueInitDensity(wortTemperature, boilDensity) / 100
-      / (calculateTruePlannedDensity(brewingTime, plannedDensity) / 100)
+    const remainedWater = wortVolume * calculateTrueInitDensity(wortTemperature, boilDensity)
+      / calculateTruePlannedDensity(brewingTime, plannedDensity)
     const additionalWater = (remainedWater - wortVolume).toFixed(2)
     return res.status(200).json({
       additionalWater
