@@ -6,7 +6,7 @@ const {calculateTrueInitDensity,
   calculateTruePlannedDensity } = require('../services/additional-water-calculator')
 
 module.exports = Router()
-  .post('/beer-bitterness', (req, res, __) => {
+  .post('/beer-bitterness', (req, res) => {
     const { initDensity, wortVolume, hops } = req.body
     const coefficients = reduceCoefficientsByDensity(calculateDensity(initDensity))
     let totalBitterness = 0
