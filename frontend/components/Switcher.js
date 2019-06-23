@@ -29,7 +29,7 @@ export class Switcher extends Component {
     })
 
     return (
-      <div ref={el => this.top = el}>
+      <div className="main" ref={el => this.top = el}>
         {children[this.state.position]}
         <div className="col s12 center-align switch-button">
           <button className="btn-flat" onClick={this.handleSwitch}>

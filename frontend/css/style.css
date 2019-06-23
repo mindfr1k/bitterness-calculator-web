@@ -72,5 +72,11 @@ input[type=number]:not(.browser-default):focus:not([readonly]) {
 
 .copyright-footer {
   font-size: 0.8rem;
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
 }
