@@ -86,7 +86,7 @@ export class AdditionalWaterForm extends Component {
             onKeyDown={this.handleKeyDown}
             type="number" 
             min="20" 
-            max="200"
+            max="30"
             step="0.01"
             required />
           </div>

@@ -7,7 +7,7 @@ const { calculationRoutes } = require('./routes')
 require('dotenv').config()
 
 express()
-  .use(cors())
+  //.use(cors())
   .disable('x-powered-by')
   .use(bodyParser.json())
   .use(express.static(join(__dirname, 'frontend', 'built')))
