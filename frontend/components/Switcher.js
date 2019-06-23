@@ -38,7 +38,7 @@ export class Switcher extends Component {
           </button>
         </div>
         <div className="col s12 center-align copyright-footer">
-          &copy; 2019 Home Brewing. All rights reserved.
+          <p>&copy; 2019 Home Brewing. All rights reserved.</p>
         </div>
       </div>
     )
