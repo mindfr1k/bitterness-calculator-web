@@ -70,17 +70,6 @@ input[type=number]:not(.browser-default):focus:not([readonly]) {
   margin-bottom: 2rem;
 }
 
-#app {
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  flex: 1 0 auto;
-}
-
 .copyright-footer {
   font-size: 0.8rem;
-  flex-shrink: 0;
-  color: #ffff00;
 }
