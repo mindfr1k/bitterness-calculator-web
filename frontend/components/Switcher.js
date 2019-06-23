@@ -30,17 +30,17 @@ export class Switcher extends Component {
 
     return (
       <div className="main" ref={el => this.top = el}>
-        {children[this.state.position]}
-        <div className="col s12 center-align switch-button">
-          <button className="btn-flat" onClick={this.handleSwitch}>
-            Перейти к расчету { this.props.switchCaptions[this.state.position] }
-            <i className="material-icons right">arrow_forward</i>
-          </button>
-        </div>
-        <div className="row">
-          <div className="col s12 center-align copyright-footer">
-            <p>&copy; 2019 Home Brewing. All rights reserved.</p>
+        <div className="main-content">
+          {children[this.state.position]}
+          <div className="col s12 center-align switch-button">
+            <button className="btn-flat" onClick={this.handleSwitch}>
+              Перейти к расчету { this.props.switchCaptions[this.state.position] }
+              <i className="material-icons right">arrow_forward</i>
+            </button>
           </div>
+        </div>
+        <div className="col s12 center-align copyright-footer">
+          <p>&copy; 2019 Home Brewing. All rights reserved.</p>
         </div>
       </div>
     )
