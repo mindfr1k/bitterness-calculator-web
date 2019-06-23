@@ -82,4 +82,5 @@ input[type=number]:not(.browser-default):focus:not([readonly]) {
 .copyright-footer {
   font-size: 0.8rem;
   flex-shrink: 0;
+  color: #ffff00;
 }
