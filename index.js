@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const { join } = require('path')
 
@@ -7,6 +8,7 @@ require('dotenv').config()
 
 express()
   .disable('x-powered-by')
+  .use(cors())
   .use(bodyParser.json())
   .use(express.static(join(__dirname, 'frontend', 'built')))
   .use('/calculator', calculationRoutes)
