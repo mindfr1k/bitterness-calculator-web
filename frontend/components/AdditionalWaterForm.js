@@ -37,7 +37,7 @@ export class AdditionalWaterForm extends Component {
     this.setState({
       isLoading: true
     })
-    fetch(`https://beer-helper.herokuapp.com/calculator/additional-water`,
+    fetch(`http://localhost:3502/calculator/additional-water`,
       {
         method: 'POST',
         headers: {

@@ -12,7 +12,7 @@ module.exports = Router()
     let totalBitterness = 0
     hops.forEach(hop => {
       const { weightInput, bitternessInput, brewingTime } = hop
-      const stepValue = (weightInput * bitternessInput / Math.floor(wortVolume / 10)).toFixed(2)
+      const stepValue = (weightInput * bitternessInput / wortVolume / 10 * 100).toFixed(2)
       totalBitterness += (stepValue * findCoeffByBrewingTime(coefficients, brewingTime))
     })
     totalBitterness = totalBitterness.toFixed(2)
