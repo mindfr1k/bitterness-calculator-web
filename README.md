@@ -8,10 +8,10 @@
 
 ``` bash
 # clone the repository
-$ git clone repo-name
+$ git clone https://github.com/mindfr1k/bitterness-calculator-web.git
 
 # change directory to current repository location
-$ cd repo-name
+$ cd bitterness-calculator-web
 
 # install dependencies
 $ npm i
