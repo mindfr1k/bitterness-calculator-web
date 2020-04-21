@@ -8,7 +8,7 @@
 
 ``` bash
 # clone the repository
-$ git clone https://github.com/mindfr1k/bitterness-calculator-web.git
+$ git clone https://github.com/stackNavigator/bitterness-calculator-web.git
 
 # change directory to current repository location
 $ cd bitterness-calculator-web
